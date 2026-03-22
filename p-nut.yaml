@@ -3,8 +3,7 @@ esphome:
   friendly_name: P-NUT
 
 esp32:
-  board: esp32-p4-evboard
-  variant: esp32p4
+  board: esp32-p4_r3-evboard
   flash_size: 16MB
   framework:
     type: esp-idf

@@ -1,4 +1,8 @@
 # P-NUT
+
+this project compiles and runs nut server, currently testing waveshare.
+debugging problems with USB connection to UPS - no testing on m5stack yet
+
 **PoE Network UPS Tools Bridge**
 
 P-NUT is an ESPHome-based firmware that bridges a USB HID UPS device to the network via the NUT (Network UPS Tools) protocol. It enables network monitoring and control of non-network-managed UPS devices using PoE-powered ESP32-P4 hardware.
@@ -32,7 +36,7 @@ This project uses components from:
 github://lostsynapse/esphome-components
 ```
 
-This is a personal fork of [bullshit/esphome-components](https://github.com/bullshit/esphome-components) and is functionally identical. The `external_components` source in either YAML can be replaced with the upstream repo:
+This is a personal fork of [bullshit/esphome-components](https://github.com/bullshit/esphome-components). There is one patch to resolve a crash due to an informational log entry that occurrs before logging is set up. This is otherwise functionall identical.
 
 ```yaml
 external_components:

@@ -1,12 +1,26 @@
 esphome:
-  name: p-nut
-  friendly_name: P-NUT
+  name: p-nut-waveshare
+  friendly_name: P-NUT Waveshare
+  platformio_options:
+    build_flags:
+      - -DESPHOME_DEBUG
 
 esp32:
   board: esp32-p4-evboard
   flash_size: 16MB
   framework:
     type: esp-idf
+
+logger:
+  hardware_uart: UART0
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
 
 ethernet:
   type: IP101
@@ -17,16 +31,6 @@ ethernet:
     pin: GPIO50
   power_pin: GPIO51
   phy_addr: 1
-
-logger:
-
-api:
-  encryption:
-    key: !secret api_key
-
-ota:
-  - platform: esphome
-    password: !secret ota_password
 
 external_components:
   - source: github://lostsynapse/esphome-components
@@ -40,6 +44,8 @@ ups_hid:
 nut_server:
   ups_hid_id: ups_monitor
   port: 3493
+  username: nutuser
+  password: nutpass
 
 sensor:
   - platform: ups_hid
